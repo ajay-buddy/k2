@@ -1,5 +1,5 @@
 language: python
-prthon:
+python:
   - "3.6"
 
 services:

@@ -27,7 +27,7 @@ from board.views import BoardAPIView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('auth/', TokenObtainPairView.as_view()),
+    path('auth/', include('djoser.urls')),
     # path('refresh/', TokenRefreshView.as_view()),
     path('project/', ProjectAPIView.as_view()),
     path('space/', SpaceAPIView.as_view()),
