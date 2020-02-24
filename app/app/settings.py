@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'spaces',
     'project',
     'board',
+    'task',
 ]
 
 REST_FRAMEWORK = {

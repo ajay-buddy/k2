@@ -24,6 +24,7 @@ from django.urls import path, include
 from project.views import ProjectView, ProjectAPIView
 from spaces.views import SpaceAPIView
 from board.views import BoardAPIView
+from task.views import TaskAPIView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,5 +32,6 @@ urlpatterns = [
     # path('refresh/', TokenRefreshView.as_view()),
     path('project/', ProjectAPIView.as_view()),
     path('space/', SpaceAPIView.as_view()),
-    path('board/', BoardAPIView.as_view())
+    path('board/', BoardAPIView.as_view()),
+    path('task/', TaskAPIView.as_view())
 ]
