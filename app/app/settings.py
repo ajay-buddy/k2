@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'project',
     'board',
     'task',
+    'ktags',
+    'kinstance'
 ]
 
 REST_FRAMEWORK = {

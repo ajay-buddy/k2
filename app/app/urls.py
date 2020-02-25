@@ -25,6 +25,8 @@ from project.views import ProjectView, ProjectAPIView
 from spaces.views import SpaceAPIView
 from board.views import BoardAPIView
 from task.views import TaskAPIView
+from ktags.views import KTagsAPIView
+from kinstance.views import KInstanceAPIView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,5 +35,8 @@ urlpatterns = [
     path('project/', ProjectAPIView.as_view()),
     path('space/', SpaceAPIView.as_view()),
     path('board/', BoardAPIView.as_view()),
-    path('task/', TaskAPIView.as_view())
+    path('task/', TaskAPIView.as_view()),
+    path('ktags/', KTagsAPIView.as_view()),
+    path('kinstance/', KInstanceAPIView.as_view()),
+
 ]
