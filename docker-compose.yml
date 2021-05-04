@@ -15,6 +15,11 @@ services:
       - DB_NAME=knowledge_database
       - DB_USER=postgres
       - DB_PASS=password
+      - DB_HOST_AUDIT=db
+      - DB_NAME_AUDIT=knowledge_database
+      - DB_USER_AUDIT=postgres
+      - DB_PASS_AUDIT=password
+      - DB_PORT_AUDIT=5440
     depends_on:
       - db
 
@@ -26,3 +31,12 @@ services:
       - POSTGRES_PASSWORD=password
     ports:
     - 5432:5432
+  
+  audit-db:
+    image: postgres:10-alpine
+    environment:
+      - POSTGRES_DB=audit_knowledge_database
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    ports:
+    - 5440:5432

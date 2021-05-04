@@ -25,8 +25,8 @@ SECRET_KEY = ')xyrf9)o0k70yy#*x@xohfjb#g447mcwr-!c-1i72f4b(_^v(*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0", "localhost"]
-
+ALLOWED_HOSTS = ['*']
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
@@ -38,11 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'djoser',
-    # 'core',
-    'spaces',
-    'project',
-    'board',
+    "corsheaders",
+    "paConfig",
 ]
 
 REST_FRAMEWORK = {
@@ -62,6 +59,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -96,6 +95,14 @@ DATABASES = {
         'USER': os.environ.get('DB_USER'),
         'PASSWORD': os.environ.get('DB_PASS'),
         'PORT': os.environ.get('DB_PORT'),
+    },
+    'audit': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'HOST': os.environ.get('DB_HOST_AUDIT'),
+        'NAME': os.environ.get('DB_NAME_AUDIT'),
+        'USER': os.environ.get('DB_USER_AUDIT'),
+        'PASSWORD': os.environ.get('DB_PASS_AUDIT'),
+        'PORT': os.environ.get('DB_PORT_AUDIT'),
     }
 }
 

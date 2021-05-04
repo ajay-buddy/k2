@@ -21,15 +21,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from project.views import ProjectView, ProjectAPIView
-from spaces.views import SpaceAPIView
-from board.views import BoardAPIView
+from paConfig.views import (
+    FetchClientsApiView, 
+    FetchStudyGroupApiView,
+    ClientBindingsAPIView,
+    MatrixBindingAPIView,
+    FeaturesBindingAPIView
+    )
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('auth/', include('djoser.urls')),
-    # path('refresh/', TokenRefreshView.as_view()),
-    path('project/', ProjectAPIView.as_view()),
-    path('space/', SpaceAPIView.as_view()),
-    path('board/', BoardAPIView.as_view())
+    # path('admin/', admin.site.urls),
+    path('pa/client', FetchClientsApiView.as_view()),
+    path('pa/study-group', FetchStudyGroupApiView.as_view()),
+    path('pa/client-binding', ClientBindingsAPIView.as_view()),
+    path('pa/feature-binding', FeaturesBindingAPIView.as_view()),
+    path('pa/matrix-binding', MatrixBindingAPIView.as_view()),
 ]
